@@ -1,0 +1,1 @@
+import{rm,mkdir,cp}from'node:fs/promises';import{spawnSync}from'node:child_process';const c=spawnSync(process.execPath,['--check','src/app.js'],{stdio:'inherit'});if(c.status)process.exit(c.status);await rm('dist',{recursive:true,force:true});await mkdir('dist');await cp('src','dist',{recursive:true});console.log('Build aprovado.');
